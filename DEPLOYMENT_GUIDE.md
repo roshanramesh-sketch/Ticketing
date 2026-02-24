@@ -99,9 +99,9 @@ cat .env
 DB_HOST=10.20.10.65
 DB_PORT=5434
 DB_USER=user_ticketing_app
-DB_PASSWORD=Ticketing@123
+DB_PASSWORD=
 DB_NAME=db_ticketing
-GMAIL_USER_EMAIL=tickets@bcits.co
+GMAIL_USER_EMAIL=
 ```
 
 ### Step 3: Build and Start the Application
@@ -144,8 +144,8 @@ http://10.20.10.65:8080
 ```
 
 **Admin Login Credentials:**
-- **Email**: roshan.ramesh@bcits.in
-- **Password**: Ticketing#321!
+- **Email**:
+- **Password**: 
 
 ---
 
