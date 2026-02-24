@@ -115,8 +115,8 @@ http://10.20.10.65:8080
 ```
 
 **Login with admin credentials:**
-- Email: `roshan.ramesh@bcits.in`
-- Password: `Ticketing#321!`
+- Email: ``
+- Password: ``
 
 ---
 
@@ -522,12 +522,12 @@ Once deployed:
 | Item | Value |
 |------|-------|
 | **Application URL** | http://10.20.10.65:8080 |
-| **Admin Email** | roshan.ramesh@bcits.in |
-| **Admin Password** | Ticketing#321! |
+| **Admin Email** |  |
+| **Admin Password** |  |
 | **Database Host** | 10.20.10.65 |
 | **Database Port** | 5434 |
 | **Database User** | user_ticketing_app |
-| **Database Password** | Ticketing@123 |
+| **Database Password** |  |
 | **Database Name** | db_ticketing |
 
 ---
