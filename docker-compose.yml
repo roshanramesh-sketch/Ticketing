@@ -14,8 +14,8 @@ services:
       # Database Configuration
       DB_HOST: 10.20.10.65
       DB_PORT: 5434
-      DB_USER: user_ticketing_app
-      DB_PASSWORD: Ticketing@123
+      DB_USER: 
+      DB_PASSWORD: 
       DB_NAME: db_ticketing
 
       # Session Configuration
@@ -42,7 +42,7 @@ services:
 
       # Gmail Configuration
       GMAIL_SERVICE_ACCOUNT_KEY: /application/ticketing_hub/gmail_sa.json
-      GMAIL_USER_EMAIL: tickets@bcits.co
+      GMAIL_USER_EMAIL: 
 
       # Email Configuration
       IMAP_HOST: imap.gmail.com
