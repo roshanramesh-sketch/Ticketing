@@ -1,0 +1,93 @@
+services:
+  ticketflow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # Explicitly support aarch64/ARM64
+      args:
+        BUILDKIT_INLINE_CACHE: 1
+    container_name: ticketflow-app
+    hostname: ticketflow-app
+    ports:
+      - "8080:8080"
+    environment:
+      # Database Configuration
+      DB_HOST: 10.20.10.65
+      DB_PORT: 5434
+      DB_USER: user_ticketing_app
+      DB_PASSWORD: Ticketing@123
+      DB_NAME: db_ticketing
+
+      # Session Configuration
+      SESSION_SECRET: TicketFlow_Secure_Session_Secret_2024_BCITS
+
+      # Node Environment
+      NODE_ENV: production
+
+      # Server Configuration
+      PORT: 8080
+      HOST: 0.0.0.0
+      
+      # Application URL - CHANGE THIS based on your deployment
+      # For IP-based: http://10.20.10.65:8080
+      # For domain: https://tickets.bsmartone.com
+      APP_URL: http://10.20.10.65:8080
+      
+      # Trust Proxy - set to true for production
+      TRUST_PROXY: "true"
+
+      # Application Settings
+      APP_NAME: TicketFlow
+      LOG_LEVEL: info
+
+      # Gmail Configuration
+      GMAIL_SERVICE_ACCOUNT_KEY: /application/ticketing_hub/gmail_sa.json
+      GMAIL_USER_EMAIL: tickets@bcits.co
+
+      # Email Configuration
+      IMAP_HOST: imap.gmail.com
+      IMAP_PORT: 993
+      SMTP_HOST: smtp.gmail.com
+      SMTP_PORT: 587
+
+      # Session Timeout
+      SESSION_TIMEOUT: 86400000
+
+      # Ping Message
+      PING_MESSAGE: pong
+
+    volumes:
+      # Mount secrets directory for Gmail key
+      - ./secrets:/app/secrets:ro
+      - ./logs:/app/logs
+
+    # Restart policy
+    restart: unless-stopped
+
+    # Network configuration
+    networks:
+      - ticketflow-network
+
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    # Health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  ticketflow-network:
+    driver: bridge
+
+# Volumes for persistent data
+volumes:
+  logs:
+    driver: local

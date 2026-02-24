@@ -1,0 +1,337 @@
+
+root@ip-10-20-10-65:/application/ticketing_hub# docker compose version
+Docker Compose version v5.0.0
+root@ip-10-20-10-65:/application/ticketing_hub# uname -m
+aarch64
+root@ip-10-20-10-65:/application/ticketing_hub# docker version
+Client: Docker Engine - Community
+ Version:           29.1.3
+ API version:       1.52
+ Go version:        go1.25.5
+ Git commit:        f52814d
+ Built:             Fri Dec 12 14:50:09 2025
+ OS/Arch:           linux/arm64
+ Context:           default
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          29.1.3
+  API version:      1.52 (minimum version 1.44)
+  Go version:       go1.25.5
+  Git commit:       fbf3ed2
+  Built:            Fri Dec 12 14:50:09 2025
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          v2.2.1
+  GitCommit:        dea7da592f5d1d2b7755e3a161be07f43fad8f75
+ runc:
+  Version:          1.3.4
+  GitCommit:        v1.3.4-0-gd6d73eb8
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+root@ip-10-20-10-65:/application/ticketing_hub# cat /etc/os-release
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+root@ip-10-20-10-65:/application/ticketing_hub#
+root@ip-10-20-10-65:/application/ticketing_hub# uname -m
+aarch64
+root@ip-10-20-10-65:/application/ticketing_hub# tree
+.
+├── AGENTS.md
+├── BUILD_AND_DEPLOY.md
+├── DEPLOYMENT_COMMANDS.sh
+├── DEPLOYMENT_GUIDE.md
+├── DEPLOYMENT_READY.md
+├── Dockerfile
+├── FILE_MANIFEST.md
+├── FIXES_APPLIED.md
+├── NEXT_STEPS_DEPLOYMENT.md
+├── QUICK_COMMANDS.md
+├── START_HERE.md
+├── TICKETING_APP_GUIDE.md
+├── backups
+├── client
+│   ├── App.tsx
+│   ├── components
+│   │   ├── layouts
+│   │   │   └── AppLayout.tsx
+│   │   └── ui
+│   │       ├── accordion.tsx
+│   │       ├── alert-dialog.tsx
+│   │       ├── alert.tsx
+│   │       ├── aspect-ratio.tsx
+│   │       ├── avatar.tsx
+│   │       ├── badge.tsx
+│   │       ├── breadcrumb.tsx
+│   │       ├── button.tsx
+│   │       ├── calendar.tsx
+│   │       ├── card.tsx
+│   │       ├── carousel.tsx
+│   │       ├── chart.tsx
+│   │       ├── checkbox.tsx
+│   │       ├── collapsible.tsx
+│   │       ├── command.tsx
+│   │       ├── context-menu.tsx
+│   │       ├── dialog.tsx
+│   │       ├── drawer.tsx
+│   │       ├── dropdown-menu.tsx
+│   │       ├── form.tsx
+│   │       ├── hover-card.tsx
+│   │       ├── input-otp.tsx
+│   │       ├── input.tsx
+│   │       ├── label.tsx
+│   │       ├── menubar.tsx
+│   │       ├── navigation-menu.tsx
+│   │       ├── pagination.tsx
+│   │       ├── popover.tsx
+│   │       ├── progress.tsx
+│   │       ├── radio-group.tsx
+│   │       ├── resizable.tsx
+│   │       ├── scroll-area.tsx
+│   │       ├── select.tsx
+│   │       ├── separator.tsx
+│   │       ├── sheet.tsx
+│   │       ├── sidebar.tsx
+│   │       ├── skeleton.tsx
+│   │       ├── slider.tsx
+│   │       ├── sonner.tsx
+│   │       ├── switch.tsx
+│   │       ├── table.tsx
+│   │       ├── tabs.tsx
+│   │       ├── textarea.tsx
+│   │       ├── toast.tsx
+│   │       ├── toaster.tsx
+│   │       ├── toggle-group.tsx
+│   │       ├── toggle.tsx
+│   │       ├── tooltip.tsx
+│   │       └── use-toast.ts
+│   ├── contexts
+│   │   ├── AuthContext.tsx
+│   │   └── ThemeContext.tsx
+│   ├── global.css
+│   ├── hooks
+│   │   ├── use-mobile.tsx
+│   │   └── use-toast.ts
+│   ├── lib
+│   │   ├── utils.spec.ts
+│   │   └── utils.ts
+│   ├── main.tsx
+│   ├── pages
+│   │   ├── Admin.tsx
+│   │   ├── Dashboard.tsx
+│   │   ├── Index.tsx
+│   │   ├── KnowledgeBase.tsx
+│   │   ├── Login.tsx
+│   │   ├── NotFound.tsx
+│   │   ├── Settings.tsx
+│   │   └── Tickets.tsx
+│   ├── types
+│   │   └── index.ts
+│   └── vite-env.d.ts
+├── components.json
+├── deploy.sh
+├── docker-compose.yml
+├── gmail_sa.json
+├── index.html
+├── init-db.sql
+├── logs
+├── netlify
+│   └── functions
+│       └── api.ts
+├── netlify.toml
+├── package.json
+├── pnpm-lock.yaml
+├── postcss.config.js
+├── public
+│   ├── favicon.ico
+│   ├── placeholder.svg
+│   └── robots.txt
+├── secrets
+├── server
+│   ├── db.ts
+│   ├── index.ts
+│   ├── node-build.ts
+│   └── routes
+│       ├── admin.ts
+│       ├── auth.ts
+│       ├── auth_ts_old
+│       ├── dashboard.ts
+│       ├── demo.ts
+│       ├── knowledge-base.ts
+│       ├── settings.ts
+│       └── tickets.ts
+├── shared
+│   └── api.ts
+├── tailwind.config.ts
+├── tsconfig.json
+├── vite.config.server.ts
+├── vite.config.ts
+├── vite_config_server_ts_old
+└── vite_config_ts_old
+
+18 directories, 114 files
+root@ip-10-20-10-65:/application/ticketing_hub#
+Below is my current DB structure hosted on the same server-
+postgres@ip-10-20-10-65:/home/ubuntu$ psql -h 10.20.10.65 -p 5434 -U user_ticketing_app -d db_ticketing
+Password for user user_ticketing_app:
+psql (18.1 (Ubuntu 18.1-1.pgdg22.04+2))
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off, ALPN: postgresql)
+Type "help" for help.
+
+db_ticketing=> \du
+                                  List of roles
+     Role name      |                         Attributes
+--------------------+------------------------------------------------------------
+ postgres           | Superuser, Create role, Create DB, Replication, Bypass RLS
+ user_ticketing_app |
+
+db_ticketing=> \dn
+          List of schemas
+     Name      |       Owner
+---------------+--------------------
+ public        | pg_database_owner
+ schema_auth   | user_ticketing_app
+ schema_kb     | user_ticketing_app
+ schema_system | user_ticketing_app
+ schema_ticket | user_ticketing_app
+(5 rows)
+
+db_ticketing=> \dt
+Did not find any tables.
+db_ticketing=> \dt schema_*.*
+                      List of tables
+    Schema     |         Name          | Type  |  Owner
+---------------+-----------------------+-------+----------
+ schema_auth   | table_users           | table | postgres
+ schema_kb     | table_kb_items        | table | postgres
+ schema_system | table_activity_logs   | table | postgres
+ schema_system | table_email_configs   | table | postgres
+ schema_ticket | table_ticket_bins     | table | postgres
+ schema_ticket | table_ticket_messages | table | postgres
+ schema_ticket | table_tickets         | table | postgres
+(7 rows)
+
+db_ticketing=>db_ticketing=> SELECT
+    table_schema,
+    table_name,
+    ordinal_position,
+    column_name,
+    data_type,
+    udt_name,
+    is_nullable,
+    column_default
+FROM information_schema.columns
+WHERE table_schema NOT IN ('pg_catalog', 'information_schema')
+ORDER BY table_schema, table_name, ordinal_position;
+db_ticketing=>
+ 
+table_schema  |      table_name       | ordinal_position |    column_name    |          data_type          | udt_name  | is_nullable |                         column_default
+---------------+-----------------------+------------------+-------------------+-----------------------------+-----------+-------------+-----------------------------------------------------------------
+ schema_auth   | table_users           |                1 | id                | integer                     | int4      | NO          | nextval('schema_auth.table_users_id_seq'::regclass)
+ schema_auth   | table_users           |                2 | firstname         | character varying           | varchar   | YES         |
+ schema_auth   | table_users           |                3 | lastname          | character varying           | varchar   | YES         |
+ schema_auth   | table_users           |                4 | email             | character varying           | varchar   | NO          |
+ schema_auth   | table_users           |                5 | password          | character varying           | varchar   | NO          |
+ schema_auth   | table_users           |                6 | role              | character varying           | varchar   | YES         |
+ schema_kb     | table_kb_items        |                1 | id                | integer                     | int4      | NO          | nextval('schema_kb.table_kb_items_id_seq'::regclass)
+ schema_kb     | table_kb_items        |                2 | title             | character varying           | varchar   | NO          |
+ schema_kb     | table_kb_items        |                3 | content           | text                        | text      | YES         |
+ schema_kb     | table_kb_items        |                4 | category          | character varying           | varchar   | YES         |
+ schema_kb     | table_kb_items        |                5 | author_id         | integer                     | int4      | YES         |
+ schema_kb     | table_kb_items        |                6 | created_time      | timestamp without time zone | timestamp | YES         | CURRENT_TIMESTAMP
+ schema_kb     | table_kb_items        |                7 | source_ticket_id  | integer                     | int4      | YES         |
+:
+|
+ schema_system | table_activity_logs   |                1 | id                | integer                     | int4      | NO
+| nextval('schema_system.table_activity_logs_id_seq'::regclass)
+ schema_system | table_activity_logs   |                2 | user_id           | integer                     | int4      | YES
+|
+ schema_system | table_activity_logs   |                3 | action            | character varying           | varchar   | YES
+|
+ schema_system | table_activity_logs   |                4 | details           | text                        | text      | YES
+|
+ schema_system | table_activity_logs   |                5 | timestamp         | timestamp without time zone | timestamp | YES
+| CURRENT_TIMESTAMP
+ schema_system | table_email_configs   |                1 | id                | integer                     | int4      | NO
+:
+| nextval('schema_system.table_email_configs_id_seq'::regclass)
+ schema_system | table_email_configs   |                2 | email_id          | character varying           | varchar   | NO          |
+ schema_system | table_email_configs   |                3 | password          | character varying           | varchar   | NO          |
+ schema_system | table_email_configs   |                4 | imap_host         | character varying           | varchar   | YES         | 'imap.gmail.com'::character varying
+ schema_system | table_email_configs   |                5 | imap_port         | integer                     | int4      | YES         | 993
+ schema_system | table_email_configs   |                6 | smtp_host         | character varying           | varchar   | YES         | 'smtp.gmail.com'::character varying
+ schema_system | table_email_configs   |                7 | smtp_port         | integer                     | int4      | YES         | 587
+ schema_system | table_email_configs   |                8 | is_active         | boolean                     | bool      | YES         | true
+ schema_system | table_email_configs   |                9 | created_time      | timestamp without time zone | timestamp | YES         | CURRENT_TIMESTAMP
+ schema_system | table_email_configs   |               10 | last_poll_time    | timestamp without time zone | timestamp | YES    
+|
+ schema_ticket | table_ticket_bins     |                1 | id                | integer                     | int4      | NO          | nextval('schema_ticket.table_ticket_bins_id_seq'::regclass)
+ schema_ticket | table_ticket_bins     |                2 | name              | character varying           | varchar   | NO          |
+ schema_ticket | table_ticket_bins     |                3 | description       | text                        | text      | YES         |
+ schema_ticket | table_ticket_bins     |                4 | manager_id        | integer                     | int4      | YES         |
+ schema_ticket | table_ticket_bins     |                5 | created_time      | timestamp without time zone | timestamp | YES         | CURRENT_TIMESTAMP
+ schema_ticket | table_ticket_messages |                1 | id                | integer                     | int4      | NO          | nextval('schema_ticket.table_ticket_messages_id_seq'::regclass)
+ schema_ticket | table_ticket_messages |                2 | ticket_id         | integer                     | int4      | YES         |
+ schema_ticket | table_ticket_messages |                3 | sender_email      | character varying           | varchar   | YES         |
+ schema_ticket | table_ticket_messages |                4 | message_body      | text                        | text      | YES         |
+ schema_ticket | table_ticket_messages |                5 | message_type      | character varying           | varchar   | YES         | 'EMAIL'::character varying
+ schema_ticket | table_ticket_messages |                6 | message_id_header | character varying           | varchar   | YES         |
+ schema_ticket | table_ticket_messages |                7 | timestamp         | timestamp without time zone | timestamp | YES         | CURRENT_TIMESTAMP
+ schema_ticket | table_tickets         |                1 | id                | integer                     | int4      | NO          | nextval('schema_ticket.table_tickets_id_seq'::regclass)
+ schema_ticket | table_tickets         |                2 | subject           | character varying           | varchar   | NO          |
+ schema_ticket | table_tickets         |                3 | content           | text                        | text      | YES         |
+ schema_ticket | table_tickets         |                4 | status            | character varying           | varchar   | YES         |
+ schema_ticket | table_tickets         |                5 | priority          | character varying           | varchar   | YES         |
+ schema_ticket | table_tickets         |                6 | requester_id      | integer                     | int4      | YES         |
+ schema_ticket | table_tickets         |                7 | assignee_id       | integer                     | int4      | YES         |
+ schema_ticket | table_tickets         |                8 | created_time      | timestamp without time zone | timestamp | YES         | CURRENT_TIMESTAMP
+ schema_ticket | table_tickets         |                9 | updated_time      | timestamp without time zone | timestamp | YES         | CURRENT_TIMESTAMP
+ schema_ticket | table_tickets         |               10 | archived_time     | timestamp without time zone | timestamp | YES         |
+ schema_ticket | table_tickets         |               11 | bin_id            | integer                     | int4      | YES         |
+ schema_ticket | table_tickets         |               12 | is_duplicate_of   | integer                     | int4      | YES         |
+(52 rows)
+
+---------
+postgres@ip-10-20-10-65:/application/ticketing_hub$ psql -p 5434
+psql (18.1 (Ubuntu 18.1-1.pgdg22.04+2))
+Type "help" for help.
+
+postgres=#  SHOW config_file;
+SHOW data_directory;
+SHOW listen_addresses;
+SHOW port;
+                    config_file
+---------------------------------------------------
+ /etc/postgresql/18/ticket_cluster/postgresql.conf
+(1 row)
+
+                     data_directory
+---------------------------------------------------------
+ /data/central_host_db_postgres18/data/18/ticketing_5434
+(1 row)
+
+ listen_addresses
+------------------
+ *
+(1 row)
+
+ port
+------
+ 5434
+(1 row)
+
+postgres=#
+
+
