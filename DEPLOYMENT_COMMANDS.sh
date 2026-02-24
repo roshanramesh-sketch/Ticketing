@@ -107,7 +107,7 @@ echo "URL: http://10.20.10.65:8080"
 echo ""
 echo "Login with admin credentials:"
 echo "Email: roshan.ramesh@bcits.in"
-echo "Password: Ticketing#321!"
+echo "Password: ""
 echo ""
 
 # ==========================================
